@@ -11,7 +11,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {useChanges} from './UseContext';
 import {allItems, categories} from './constants';
-const selection = ({route}) => {
+const Selection = ({route}) => {
   const {Choice, index} = route.params;
   const navigation: any = useNavigation();
   const [Filter, SetFilter] = useState('');
@@ -52,7 +52,7 @@ const selection = ({route}) => {
       if (Sort === 'Relevance (default)') {
         Filter == 'All'
           ? SetArray([...allItems[1], ...allItems[2], ...allItems[3]])
-          : SetArray(allItems[index]);
+          : SetArray(allItems[categories.findIndex(x => x.name == Filter) + 1]);
       }
     }
     ref.current = true;
@@ -60,6 +60,7 @@ const selection = ({route}) => {
 
   const ItemRender = ({item}) => (
     <View
+      key={item.Item}
       style={{
         marginHorizontal: 3.5,
         marginVertical: 3.5,
@@ -201,7 +202,7 @@ const selection = ({route}) => {
 
   const Category = ({item}) => {
     return (
-      <View style={{marginHorizontal: 10, flexDirection: 'row'}}>
+      <View key={item.id} style={{marginHorizontal: 10, flexDirection: 'row'}}>
         <TouchableOpacity
           onPress={() => {
             SetArray(allItems[item.id]);
@@ -336,7 +337,7 @@ const selection = ({route}) => {
               justifyContent: 'space-evenly',
             }}
             onPress={() => {
-              navigation.navigate('figmaModal');
+              navigation.navigate('Modal');
             }}>
             <View
               style={{
@@ -369,4 +370,4 @@ const selection = ({route}) => {
   );
 };
 
-export default selection;
+export default Selection;
