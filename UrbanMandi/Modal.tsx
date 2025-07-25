@@ -3,7 +3,7 @@ import {View, Text, Pressable, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useChanges} from './UseContext';
 
-const figmaModal = () => {
+const Modal = () => {
   const navigation: any = useNavigation();
   const {Sort, setSort, now, setnow} = useChanges();
 
@@ -19,8 +19,8 @@ const figmaModal = () => {
         style={{backgroundColor: Sort === item ? '#E2F8E9' : 'white'}}
         onPress={() => {
           setSort(item);
-          navigation.goBack();
           setnow(!now);
+          navigation.goBack();
         }}
         key={item}>
         <Text
@@ -73,4 +73,4 @@ const figmaModal = () => {
   );
 };
 
-export default figmaModal;
+export default Modal;
