@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import {useChanges} from './UseContext';
 import {OrderAgain} from './constants';
-const main = () => {
+const Main = () => {
   const navigation: any = useNavigation();
 
   const {Changes, SetChanges} = useChanges();
@@ -352,4 +352,4 @@ const main = () => {
   );
 };
 
-export default main;
+export default Main;
