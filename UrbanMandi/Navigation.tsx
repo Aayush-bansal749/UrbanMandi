@@ -2,11 +2,11 @@ import BootSplash from 'react-native-bootsplash';
 import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import main from './Dashboard';
-import selection from './Categories';
 import {ChangesProvider} from './UseContext';
-import ordered from './OrderAgain';
-import figmaModal from './Modal';
+import Modal from './Modal';
+import Main from './Dashboard';
+import Selection from './Categories';
+import Ordered from './OrderAgain';
 
 const Stack = createNativeStackNavigator();
 const Figma = () => {
@@ -24,16 +24,16 @@ const Figma = () => {
           <Stack.Group>
             <Stack.Screen
               name={'dashboard'}
-              component={main}
+              component={Main}
               options={{headerShown: false}}
             />
-            <Stack.Screen name={'Shop by categories'} component={selection} />
-            <Stack.Screen name={'Order again'} component={ordered} />
+            <Stack.Screen name={'Shop by categories'} component={Selection} />
+            <Stack.Screen name={'Order again'} component={Ordered} />
           </Stack.Group>
           <Stack.Group screenOptions={{presentation: 'transparentModal'}}>
             <Stack.Screen
-              name={'figmaModal'}
-              component={figmaModal}
+              name={'Modal'}
+              component={Modal}
               options={{headerShown: false}}
             />
           </Stack.Group>
