@@ -3,7 +3,7 @@ import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 
 import {useChanges} from './UseContext';
 import {OrderAgain} from './constants';
-const ordered = () => {
+const Ordered = () => {
   const {Changes, SetChanges} = useChanges();
 
   const ItemRender = ({item}) => (
@@ -166,4 +166,4 @@ const ordered = () => {
   );
 };
 
-export default ordered;
+export default Ordered;
